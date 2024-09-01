@@ -18,6 +18,8 @@ import com.changkeereum.restapi.bean.User;
 import com.changkeereum.restapi.dao.UserDaoService;
 import com.changkeereum.restapi.exception.UserNotFoundException;
 
+import jakarta.validation.Valid;
+
 
 
 @RestController
@@ -41,7 +43,7 @@ public class UserController {
     }
     
     @PostMapping("/users")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         User savedUser = service.save(user);
 
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()

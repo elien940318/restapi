@@ -5,6 +5,8 @@ server:
 spring:
     application:
         name: restapi
+    message:
+        basename: messages
 logging:
     level:
         org.springframework: debug

@@ -1,31 +1,33 @@
+### 다국어처리
+GET http://localhost:8088/hello-world-internationalized HTTP/1.1
+content-type: application/json
+Accept-Language: kr
+
+### 사용자 목록 조회(XML Response)
+GET http://localhost:8088/users HTTP/1.1
+content-type: application/json
+Accept: application/xml
+
 ### 사용자 목록 조회
 GET http://localhost:8088/users HTTP/1.1
 content-type: application/json
-
-{
-    
-}
 
 ### 사용자 단건 조회
 GET http://localhost:8088/users/2 HTTP/1.1
 content-type: application/json
 
-{
-    
-}
+### 사용자 목록 조회(Admin)
+GET http://localhost:8088/admin/users/2 HTTP/1.1
+content-type: application/json
 
 ### 사용자 신규등록
 POST http://localhost:8088/users
 content-type: application/json
 
 {
-   "name" : "changgi"
+   "name" : "changkeereum"
 }
 
 ### 사용자 삭제
 DELETE http://localhost:8088/users/4
 content-type: application/json
-
-{
-   
-}

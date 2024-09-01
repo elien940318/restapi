@@ -2,7 +2,7 @@ package com.changkeereum.restapi.bean;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonFilter;
 
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Past;
@@ -14,8 +14,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties(value={"password", "ssn"})
-public class User {
+@JsonFilter("UserInfo")
+public class AdminUser {
 
     @Id
     private Integer id;
@@ -26,8 +26,6 @@ public class User {
     @Past(message="등록일자는 현재시각 이전으로 입력해주시기 바랍니다.")
     private Date joinDate;
 
-    //@JsonIgnore
     private String password;
-    //@JsonIgnore
     private String ssn;
 }
