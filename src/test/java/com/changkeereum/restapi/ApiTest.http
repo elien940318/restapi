@@ -7,7 +7,7 @@ content-type: application/json
 }
 
 ### 사용자 단건 조회
-GET http://localhost:8088/users/6 HTTP/1.1
+GET http://localhost:8088/users/2 HTTP/1.1
 content-type: application/json
 
 {
@@ -20,4 +20,12 @@ content-type: application/json
 
 {
    "name" : "changgi"
+}
+
+### 사용자 삭제
+DELETE http://localhost:8088/users/4
+content-type: application/json
+
+{
+   
 }
