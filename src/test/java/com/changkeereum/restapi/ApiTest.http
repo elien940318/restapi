@@ -1,0 +1,23 @@
+### 사용자 목록 조회
+GET http://localhost:8088/users HTTP/1.1
+content-type: application/json
+
+{
+    
+}
+
+### 사용자 단건 조회
+GET http://localhost:8088/users/6 HTTP/1.1
+content-type: application/json
+
+{
+    
+}
+
+### 사용자 신규등록
+POST http://localhost:8088/users
+content-type: application/json
+
+{
+   "name" : "changgi"
+}
