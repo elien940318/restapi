@@ -1,0 +1,10 @@
+##spring.application.name=restapi
+
+server:
+    port: 8088
+spring:
+    application:
+        name: restapi
+logging:
+    level:
+        org.springframework: debug
