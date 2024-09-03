@@ -1,9 +1,13 @@
 package com.changkeereum.restapi.controller;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
 import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,13 +37,19 @@ public class UserController {
     }
     
     @GetMapping("/users/{id}")
-    public User retrieveUser(@PathVariable("id") int id) {
+    public EntityModel<User> retrieveUser(@PathVariable("id") int id) {
         User user = service.findOne(id);
 
         if(ObjectUtils.isEmpty(user)) {
             throw new UserNotFoundException(String.format("ID[%s] not found", id));
         }
-        return user;
+
+        EntityModel<User> entityModel = EntityModel.of(user);
+
+        WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).retrieveAllUsers());
+        entityModel.add(linkTo.withRel("all-users"));
+
+        return entityModel;
     }
     
     @PostMapping("/users")
