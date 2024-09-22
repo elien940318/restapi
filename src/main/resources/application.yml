@@ -5,8 +5,25 @@ server:
 spring:
     application:
         name: restapi
-    message:
+    messages:
         basename: messages
+    # security:
+    #     user:
+    #         name: changkeereum
+    #         password: 0P2s2w3d@!
+    datasource:
+        url: jdbc:h2:mem:testdb
+        username: sa
+    jpa:
+        hibernate:
+            ddl_auto: create-drop
+        show-sql: true
+        defer-datasource-initialization: true
+    h2:
+        console:
+            enabled: true
+            settings:
+                web-allow-others: true
 logging:
     level:
-        org.springframework: debug
+        changkeereum: debug
